@@ -1,4 +1,4 @@
-package com.bahaso.bahaso.ui
+package com.bahaso.bahaso.login
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.bahaso.bahaso.R
+import com.bahaso.bahaso.ui.LoginFragmentDirections
 
 
 class LoginFragment : Fragment() {

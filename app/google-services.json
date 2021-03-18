@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "402136722506",
+    "project_id": "bahaso-fa113",
+    "storage_bucket": "bahaso-fa113.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402136722506:android:bfb83e709f5b20bdb80ab3",
+        "android_client_info": {
+          "package_name": "com.bahaso.bahaso"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402136722506-qb3nn5jpvu4ulcihn75qbge9oj4745fn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAC5r8DCumulWva0gkLwIHZ_cNPH-FRzIg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402136722506-qb3nn5jpvu4ulcihn75qbge9oj4745fn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

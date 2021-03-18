@@ -1,11 +1,10 @@
-package com.bahaso.bahaso.ui
+package com.bahaso.bahaso
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.bahaso.bahaso.R
 import com.bahaso.bahaso.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 

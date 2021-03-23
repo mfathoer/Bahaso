@@ -9,7 +9,11 @@
         android:id="@+id/homeFragment"
         android:name="com.bahaso.bahaso.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_quizFragment"
+            app:destination="@id/quizFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.bahaso.bahaso.profile.ProfileFragment"
@@ -37,4 +41,9 @@
         android:name="com.bahaso.bahaso.signup.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" />
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="com.bahaso.bahaso.quiz.QuizFragment"
+        android:label="fragment_quiz"
+        tools:layout="@layout/fragment_quiz" />
 </navigation>

@@ -3,4 +3,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="login">Login</string>
+    <string name="learning_topic">Topik Pembelajaran</string>
+    <string name="lets_learn_java">Ayo belajar bahasa jawa hari ini</string>
+    <string name="java_alphabet">Huruf Jawa</string>
+    <string name="java_alphabet_sub">Belajar dari Huruf Dulu</string>
+    <string name="java_conversation">Percakapan</string>
+    <string name="java_conversation_sub">Percakapan sederhana</string>
+    <string name="before">Sebelumnya</string>
+    <string name="next">Selanjutnya</string>
 </resources>

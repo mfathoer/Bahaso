@@ -1,24 +1,26 @@
-package com.bahaso.bahaso.home
+package com.bahaso.bahaso.quiz
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.bahaso.bahaso.databinding.FragmentHomeBinding
+import com.bahaso.bahaso.R
+import com.bahaso.bahaso.databinding.FragmentQuizBinding
 
-class HomeFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+class QuizFragment : Fragment() {
 
-    private val binding: FragmentHomeBinding
+    private var _binding : FragmentQuizBinding? = null
+
+    private val binding
         get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentQuizBinding.inflate(inflater,container,false)
         return binding.root
     }
 

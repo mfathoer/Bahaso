@@ -2,7 +2,13 @@
     <string name="app_name">Bahaso</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="login">Login</string>
+    <string name="login">Masuk</string>
+    <string name="Email">Email</string>
+    <string name="password">Password</string>
+    <string name="signup">Daftar</string>
+    <string name="logo">Logo</string>
+    <string name="Tidak_punya_akun">Tidak punya akun?</string>
+    <string name="lupa_password">Lupa password?</string>
     <string name="learning_topic">Topik Pembelajaran</string>
     <string name="lets_learn_java">Ayo belajar bahasa jawa hari ini</string>
     <string name="java_alphabet">Huruf Jawa</string>

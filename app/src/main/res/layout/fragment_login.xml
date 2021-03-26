@@ -8,7 +8,7 @@
     tools:context=".login.LoginFragment">
 
     <EditText
-        android:id="@+id/edit_username"
+        android:id="@+id/edit_email"
         style="@style/Widget.AppCompat.EditText"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/Email"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/btn_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.500"
@@ -36,7 +36,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.500"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_username"
+        app:layout_constraintTop_toBottomOf="@+id/edit_email"
         app:layout_constraintVertical_bias="0.323" />
 
     <Button
@@ -100,7 +100,7 @@
         android:layout_height="130dp"
         android:contentDescription="@string/logo"
         android:src="@drawable/ic_profile_blue"
-        app:layout_constraintBottom_toTopOf="@+id/edit_username"
+        app:layout_constraintBottom_toTopOf="@+id/edit_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

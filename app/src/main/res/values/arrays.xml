@@ -2,4 +2,8 @@
 <resources>
     <string-array name="preloaded_fonts">preload_fonts</string-array>
     <string-array name="com_google_android_gms_fonts_certs">fonts_cerst</string-array>
+    <string-array name="gender_list">
+        <item>Laki-laki</item>
+        <item>Perempuan</item>
+    </string-array>
 </resources>

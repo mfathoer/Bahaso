@@ -45,5 +45,11 @@
         android:id="@+id/quizFragment"
         android:name="com.bahaso.bahaso.quiz.QuizFragment"
         android:label="fragment_quiz"
-        tools:layout="@layout/fragment_quiz" />
+        tools:layout="@layout/fragment_quiz" >
+        <argument
+            android:name="topic"
+            app:argType="com.bahaso.bahaso.core.domain.Topic"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
 </navigation>

@@ -5,19 +5,24 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.bahaso.bahaso.BaseFragment
 import com.bahaso.bahaso.MyApplication
 import com.bahaso.bahaso.core.ViewModelFactory
+import com.bahaso.bahaso.core.data.LoadResult
 import com.bahaso.bahaso.databinding.FragmentHomeBinding
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment() {
 
     private var _binding: FragmentHomeBinding? = null
 
-    private val binding: FragmentHomeBinding
-        get() = _binding!!
+    private val binding
+        get() = _binding
 
     @Inject
     lateinit var factory: ViewModelFactory
@@ -25,6 +30,8 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels {
         factory
     }
+
+    private lateinit var adapter: LearningTopicListAdapter
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -36,7 +43,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding.root
+        return binding?.root
     }
 
     override fun onDestroyView() {
@@ -46,7 +53,46 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        adapter = LearningTopicListAdapter()
+        observeQuizTopic()
 
+        binding?.rvLearningTopic?.let {
+            it.adapter = adapter
+            it.layoutManager = LinearLayoutManager(context)
+        }
+
+        adapter.onItemClicked = {
+            val action = HomeFragmentDirections.actionHomeFragmentToQuizFragment()
+            action.topic = it
+
+            findNavController().navigate(action)
+        }
+    }
+
+    private fun observeQuizTopic() = launch {
+        viewModel.getAllLearningTopic()
+        viewModel.topic.collect { loadResult ->
+            when (loadResult) {
+                is LoadResult.Loading -> {
+                    showLoadingState(true)
+                }
+                is LoadResult.Success -> {
+                    showLoadingState(false)
+                    adapter.submitList(loadResult.data)
+                }
+                is LoadResult.Error -> {
+                    showLoadingState(false)
+                }
+            }
+        }
+    }
+
+    private fun showLoadingState(state:Boolean){
+        if (state){
+            binding?.progressBar?.visibility = View.VISIBLE
+        } else {
+            binding?.progressBar?.visibility = View.GONE
+        }
     }
 
 }

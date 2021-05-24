@@ -15,5 +15,5 @@ interface CoreComponent {
         fun create(): CoreComponent
     }
 
-    fun provideRepository(): QuizRepository
+    fun provideQuizRepository(): QuizRepository
 }

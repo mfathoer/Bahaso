@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.constraintlayout.motion.utils.Oscillator.TAG
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.bahaso.bahaso.BaseFragment
 import com.bahaso.bahaso.R
 import com.bahaso.bahaso.databinding.FragmentLoginBinding
 import com.google.android.gms.tasks.OnCompleteListener
@@ -21,7 +22,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 
-class LoginFragment : Fragment() {
+class LoginFragment : BaseFragment() {
     private lateinit var auth: FirebaseAuth
 
     private var _binding: FragmentLoginBinding? = null

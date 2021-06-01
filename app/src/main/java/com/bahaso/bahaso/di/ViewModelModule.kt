@@ -24,11 +24,6 @@ abstract class ViewModelModule {
     abstract fun bindQuizViewModel(viewModel: QuizViewModel): ViewModel
 
     @Binds
-    @IntoMap
-    @ViewModelKey(SignUpViewModel::class)
-    abstract fun bindSignUpViewModel(viewModel: SignUpViewModel): ViewModel
-
-    @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
 
 }

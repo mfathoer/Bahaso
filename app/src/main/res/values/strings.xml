@@ -28,5 +28,7 @@
     <string name="change_password">Ubah Kata Sandi</string>
     <string name="exit">Keluar</string>
     <string name="desc_img_profile">User Profile</string>
-
+    <string name="count_question">"%d / %d "</string>
+    <string name="done">Selesai</string>
+    <string name="translation">Terjemahan</string>
 </resources>

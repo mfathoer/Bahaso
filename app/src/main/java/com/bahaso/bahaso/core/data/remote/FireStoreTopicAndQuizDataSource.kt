@@ -3,20 +3,21 @@ package com.bahaso.bahaso.core.data.remote
 import com.bahaso.bahaso.core.data.LoadResult
 import com.bahaso.bahaso.core.domain.Quiz
 import com.bahaso.bahaso.core.domain.Topic
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@ExperimentalCoroutinesApi
 @Singleton
 class FireStoreTopicAndQuizDataSource @Inject constructor(
+    private val auth: FirebaseAuth,
     private val fireStore: FirebaseFirestore,
     private val ioDispatcher: CoroutineDispatcher,
+    private val externalScope: CoroutineScope = GlobalScope,
 ) {
 
     companion object {
@@ -33,9 +34,11 @@ class FireStoreTopicAndQuizDataSource @Inject constructor(
         private const val QUESTION_FIELD_OPTION_1 = "option1"
         private const val QUESTION_FIELD_OPTION_2 = "option2"
         private const val QUESTION_FIELD_OPTION_3 = "option3"
-
+        private const val QUESTION_USER_SCORE = "users_score"
+        private const val SCORE = "score"
     }
 
+    @ExperimentalCoroutinesApi
     val allLearningTopic = callbackFlow<LoadResult<List<Topic>>> {
         val dataRef = fireStore.collection(TOPICS_COLLECTION)
 
@@ -47,7 +50,8 @@ class FireStoreTopicAndQuizDataSource @Inject constructor(
                     listTopics.add(Topic(
                         id = queryDocumentSnapshot.id,
                         topic = queryDocumentSnapshot.getString(TOPIC_FIELD_TOPIC) ?: "",
-                        description = queryDocumentSnapshot.getString(TOPIC_FIELD_DESCRIPTION) ?: "",
+                        description = queryDocumentSnapshot.getString(TOPIC_FIELD_DESCRIPTION)
+                            ?: "",
                         imageUrl = queryDocumentSnapshot.getString(TOPIC_FIELD_IMAGE_URL) ?: "",
                     ))
                 }
@@ -61,6 +65,7 @@ class FireStoreTopicAndQuizDataSource @Inject constructor(
         awaitClose { subscription.remove() }
     }.flowOn(ioDispatcher)
 
+    @ExperimentalCoroutinesApi
     fun getAllQuizByTopic(topicId: String) = callbackFlow<LoadResult<List<Quiz>>> {
 
         val dataRef = fireStore.collection(TOPICS_COLLECTION).document(topicId).collection(
@@ -88,4 +93,19 @@ class FireStoreTopicAndQuizDataSource @Inject constructor(
         }
         awaitClose { subscription.remove() }
     }.flowOn(ioDispatcher)
+
+    fun saveUserScore(topicId: String, score: Float) =
+        externalScope.launch {
+            auth.currentUser?.let {
+                val dataRef = fireStore.collection(TOPICS_COLLECTION).document(topicId).collection(
+                    QUESTION_USER_SCORE).document(it.uid)
+
+                val data = hashMapOf(
+                    SCORE to score
+                )
+
+                dataRef.set(data)
+            }
+        }
+
 }

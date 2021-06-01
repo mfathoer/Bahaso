@@ -10,7 +10,7 @@
         android:id="@+id/bg_topic"
         android:layout_width="match_parent"
         android:layout_height="160dp"
-        android:background="?attr/colorAccent"
+        android:background="@color/light_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,7 +32,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="@id/tv_topic"
         app:layout_constraintTop_toBottomOf="@id/tv_topic"
-        tools:text="4/10 Done" />
+        tools:text="4/10" />
 
     <ProgressBar
         android:id="@+id/question_progress_bar"
@@ -43,144 +43,13 @@
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@id/tv_count_question" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_question"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        app:cardCornerRadius="8dp"
-        app:layout_constraintTop_toBottomOf="@id/question_progress_bar">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:padding="64dp"
-            tools:text="@tools:sample/lorem" />
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/answer_a"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
         android:layout_width="0dp"
-        android:layout_height="156dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="8dp"
-        app:cardCornerRadius="8dp"
-        app:layout_constraintEnd_toStartOf="@id/answer_b"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card_question">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:padding="16dp"
-            tools:text="@tools:sample/lorem" />
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/answer_b"
-        android:layout_width="0dp"
-        android:layout_height="156dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
-        app:cardCornerRadius="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/answer_a"
-        app:layout_constraintTop_toTopOf="@id/answer_a">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="8dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:padding="16dp"
-                tools:text="@tools:sample/lorem" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/answer_c"
-        android:layout_width="0dp"
-        android:layout_height="156dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        app:cardCornerRadius="8dp"
-        app:layout_constraintEnd_toStartOf="@id/answer_d"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/answer_a">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:padding="16dp"
-            tools:text="@tools:sample/lorem" />
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/answer_d"
-        android:layout_width="0dp"
-        android:layout_height="156dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
-        app:cardCornerRadius="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/answer_c"
-        app:layout_constraintTop_toTopOf="@id/answer_c">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="8dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:padding="16dp"
-                tools:text="@tools:sample/lorem" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
-    <Button
-        android:id="@+id/btn_back_question"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="@android:color/darker_gray"
-        android:text="@string/before"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btn_next_question"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btn_next_question"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/mainYellow"
-        android:text="@string/next"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btn_back_question"
-        app:layout_constraintTop_toTopOf="@id/btn_back_question" />
+        app:layout_constraintTop_toBottomOf="@id/question_progress_bar" />
 
     <ProgressBar
         android:id="@+id/progress_bar"

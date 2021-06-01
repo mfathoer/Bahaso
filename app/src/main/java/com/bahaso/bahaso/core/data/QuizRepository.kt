@@ -24,4 +24,8 @@ class QuizRepository @Inject constructor(
     suspend fun getAllQuizByTopic(topicId: String) = withContext(ioDispatcher) {
         return@withContext fireStoreTopicAndQuizDataSource.getAllQuizByTopic(topicId)
     }
+
+    suspend fun saveUserScore(topicId: String, score: Float) = withContext(ioDispatcher) {
+        fireStoreTopicAndQuizDataSource.saveUserScore(topicId, score)
+    }
 }

@@ -67,7 +67,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etName" />
 
-    <androidx.appcompat.widget.AppCompatEditText
+    <Spinner
         android:id="@+id/etGender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etGender" />
 
-    <androidx.appcompat.widget.AppCompatEditText
+    <TextView
         android:id="@+id/etBirth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -148,6 +148,7 @@
         tools:text="admin@gmail.com" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
@@ -161,13 +162,14 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/btnToLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         android:text="Sudah punya akun ? Masuk"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        android:layout_marginBottom="24dp"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

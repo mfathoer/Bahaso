@@ -86,7 +86,9 @@ class QuizFragment : BaseFragment() {
                 viewModel.incrementViewPagerCurrentPage()
             } else {
                 arguments.topic?.id?.let { viewModel.saveUserScore(it) }
-                // show score
+                // erase code below and change to show score
+                // to get the final score, you can get it from "viewModel.userScore" variable
+                activity?.onBackPressed()
             }
         }
     }

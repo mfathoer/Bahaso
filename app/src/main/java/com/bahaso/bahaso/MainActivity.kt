@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.profileFragment -> navView.visibility = View.VISIBLE
                 R.id.homeFragment -> navView.visibility = View.VISIBLE
                 R.id.loginFragment -> navView.visibility = View.GONE
-                R.id.tempFragment -> navView.visibility = View.VISIBLE
+                R.id.leaderBoardFragment -> navView.visibility = View.VISIBLE
                 R.id.quizFragment -> navView.visibility = View.GONE
                 R.id.theoryFragment -> navView.visibility = View.GONE
             }

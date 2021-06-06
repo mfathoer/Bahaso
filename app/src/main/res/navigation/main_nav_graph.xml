@@ -24,10 +24,10 @@
             app:destination="@id/loginFragment" />
     </fragment>
     <fragment
-        android:id="@+id/tempFragment"
-        android:name="com.bahaso.bahaso.TempFragment"
+        android:id="@+id/leaderBoardFragment"
+        android:name="com.bahaso.bahaso.leaderboard.LeaderBoardFragment"
         android:label="fragment_temp"
-        tools:layout="@layout/fragment_temp" />
+        tools:layout="@layout/fragment_leader_board" />
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.bahaso.bahaso.login.LoginFragment"

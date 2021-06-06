@@ -10,10 +10,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bahaso.bahaso.BaseFragment
 import com.bahaso.bahaso.MyApplication
+import com.bahaso.bahaso.R
 import com.bahaso.bahaso.core.ViewModelFactory
 import com.bahaso.bahaso.core.data.LoadResult
 import com.bahaso.bahaso.core.session.Preferences
 import com.bahaso.bahaso.databinding.FragmentHomeBinding
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -61,6 +64,13 @@ class HomeFragment : BaseFragment() {
         val pref = Preferences(requireContext())
         binding?.username?.text = "Halo, ${pref.name}"
 
+        val requestOptions = RequestOptions().placeholder(R.drawable.ic_user_profile_image)
+            .error(R.drawable.ic_user_profile_image)
+
+        binding?.imgAvatar?.let {
+            Glide.with(this).setDefaultRequestOptions(requestOptions).load("").into(it)
+        }
+
         binding?.rvLearningTopic?.let {
             it.adapter = adapter
             it.layoutManager = LinearLayoutManager(context)
@@ -92,8 +102,8 @@ class HomeFragment : BaseFragment() {
         }
     }
 
-    private fun showLoadingState(state:Boolean){
-        if (state){
+    private fun showLoadingState(state: Boolean) {
+        if (state) {
             binding?.progressBar?.visibility = View.VISIBLE
         } else {
             binding?.progressBar?.visibility = View.GONE

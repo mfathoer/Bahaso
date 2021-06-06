@@ -2,14 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/homeFragment"
-        android:title="Home"
-        android:icon="@drawable/ic_profile_blue"/>
+        android:icon="@drawable/ic_home"
+        android:title="@string/home" />
     <item
-        android:id="@+id/tempFragment"
-        android:title="temp"
-        android:icon="@drawable/ic_profile_blue"/>
+        android:id="@+id/leaderBoardFragment"
+        android:icon="@drawable/ic_podium"
+        android:title="@string/leader_board" />
     <item
         android:id="@+id/profileFragment"
-        android:title="Profile"
-        android:icon="@drawable/ic_profile_blue"/>
+        android:icon="@drawable/ic_profile_blue"
+        android:title="@string/profile" />
 </menu>

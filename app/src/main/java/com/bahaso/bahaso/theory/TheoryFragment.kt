@@ -76,10 +76,15 @@ class TheoryFragment : Fragment(), View.OnClickListener {
                 super.onPageSelected(position)
                 viewModel.setViewPagerCurrentPage(position)
 
+                if (position == 0) {
+                    binding?.btnPrevTheory?.text = getString(R.string.back)
+                } else {
+                    binding?.btnPrevTheory?.text = getString(R.string.before)
+                }
+
                 if (viewModel.listDataTheory.size - 1 == position) {
                     showTakeExamButton(true)
                 } else {
-                    binding?.btnPrevTheory?.isEnabled = position != 0
                     showTakeExamButton(false)
                 }
             }
@@ -101,6 +106,8 @@ class TheoryFragment : Fragment(), View.OnClickListener {
             R.id.btn_prev_theory -> {
                 if (binding?.theoryViewPager?.currentItem != 0) {
                     binding?.theoryViewPager?.currentItem = viewModel.viewPagerCurrentPage - 1
+                } else {
+                    activity?.onBackPressed()
                 }
             }
 

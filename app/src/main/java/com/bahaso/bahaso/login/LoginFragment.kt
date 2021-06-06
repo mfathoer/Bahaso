@@ -69,13 +69,10 @@ class LoginFragment : BaseFragment() {
         val email = binding.editEmail.text.toString()
         val password = binding.editPassword.text.toString()
         if(email.equals("") || password.equals("")) {
-            Toast.makeText(context, "Email dan Password tidak boleh kosong", Toast.LENGTH_SHORT).show()
-
-        var email = binding.editEmail.text.toString()
-        var password = binding.editPassword.text.toString()
-        if (email.equals("") || password.equals("")) {
-            return
+            Toast.makeText(context, "Email dan Password tidak boleh kosong", Toast.LENGTH_SHORT)
+                .show()
         }
+
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(Activity()) { task ->
                 if (task.isSuccessful) {

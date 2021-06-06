@@ -3,6 +3,7 @@ package com.bahaso.bahaso.signup
 import android.app.DatePickerDialog
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
@@ -15,10 +16,11 @@ import com.bahaso.bahaso.BaseFragment
 import com.bahaso.bahaso.MyApplication
 import com.bahaso.bahaso.R
 import com.bahaso.bahaso.core.ViewModelFactory
+import com.bahaso.bahaso.core.session.Preferences
 import com.bahaso.bahaso.databinding.FragmentSignUpBinding
+import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.prefs.Preferences
 import javax.inject.Inject
 
 class SignUpFragment : BaseFragment(), View.OnClickListener {
@@ -69,7 +71,15 @@ class SignUpFragment : BaseFragment(), View.OnClickListener {
         // Move to Home
         viewModel.navigateToHome.observe(viewLifecycleOwner, {
             if (it) {
-//                val pref = Preferences(requireContext()) //wait masih error
+                val pref = Preferences(requireContext())
+                pref.setName(name)
+                pref.setBirth(birth)
+                pref.setEmail(email)
+                pref.setGender(gender)
+
+                Log.d("SharedPreference", pref.email!!.toString())
+                Log.d("SharedPreference", pref.name!!.toString())
+
 
                 findNavController().navigate(SignUpFragmentDirections.actionSignUpFragmentToHomeFragment())
             }

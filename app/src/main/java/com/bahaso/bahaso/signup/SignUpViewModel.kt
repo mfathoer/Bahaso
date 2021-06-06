@@ -3,13 +3,14 @@ package com.bahaso.bahaso.signup
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.bahaso.bahaso.core.data.QuizRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.*
 import timber.log.Timber
 import javax.inject.Inject
 
-class SignUpViewModel : ViewModel() {
+class SignUpViewModel @Inject constructor(private val quizRepository: QuizRepository) : ViewModel() {
 
     private val auth : FirebaseAuth = FirebaseAuth.getInstance()
     private lateinit var user : FirebaseUser

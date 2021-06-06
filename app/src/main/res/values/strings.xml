@@ -18,4 +18,18 @@
     <string name="java_conversation_sub">Percakapan sederhana</string>
     <string name="before">Sebelumnya</string>
     <string name="next">Selanjutnya</string>
+    <string name="score">SCORE</string>
+    <string name="score_name">NARUTO UZUMAKI</string>
+    <string name="score_grade">80</string>
+    <string name="score_button">Try Again</string>
+    <string name="name_profile">Nama Orang</string>
+    <string name="email_profile">emailemail@gmail.com</string>
+    <string name="tanggal_profile">12 Januari 2001</string>
+    <string name="change_name">Ubah Nama</string>
+    <string name="change_password">Ubah Kata Sandi</string>
+    <string name="exit">Keluar</string>
+    <string name="desc_img_profile">User Profile</string>
+    <string name="count_question">"%d / %d "</string>
+    <string name="done">Selesai</string>
+    <string name="translation">Terjemahan</string>
 </resources>

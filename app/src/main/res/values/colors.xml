@@ -14,4 +14,6 @@
     <color name="placeholder_gray">#D8D9D9</color>
     <color name="light_green">#78E809</color>
     <color name="red">#FB1313</color>
+    <color name="pale_red">#EE7471</color>
+    <color name="cream">#FFD7AE</color>
 </resources>

@@ -31,4 +31,14 @@
     <string name="count_question">"%d / %d "</string>
     <string name="done">Selesai</string>
     <string name="translation">Terjemahan</string>
+    <string name="take_exam">Ambil Ujian</string>
+    <string name="start">Mulai</string>
+    <string name="cancel">Batal</string>
+    <string name="are_you_sure">Apa anda yakin?</string>
+    <string name="take_exam_alert_dialog_message">Ujian akan dimulai setelah Anda klik \"Mulai ujian\"</string>
+    <string name="alert__message_cancel_quiz">Jawaban quiz Anda akan terhapus</string>
+    <string name="continue_quiz">Lanjut</string>
+    <string name="alert_title_cancel_quiz">Batalkan quiz?</string>
+    <string name="yes">ya</string>
+    <string name="no">tidak</string>
 </resources>

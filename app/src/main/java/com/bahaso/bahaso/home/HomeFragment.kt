@@ -62,7 +62,7 @@ class HomeFragment : BaseFragment() {
         }
 
         adapter.onItemClicked = {
-            val action = HomeFragmentDirections.actionHomeFragmentToQuizFragment()
+            val action = HomeFragmentDirections.actionHomeFragmentToTheoryFragment()
             action.topic = it
 
             findNavController().navigate(action)

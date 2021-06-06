@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.loginFragment -> navView.visibility = View.GONE
                 R.id.tempFragment -> navView.visibility = View.VISIBLE
                 R.id.quizFragment -> navView.visibility = View.GONE
+                R.id.scoreFragment -> navView.visibility = View.GONE
             }
         }
     }

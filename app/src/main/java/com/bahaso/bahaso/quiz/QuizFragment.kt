@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.widget.ViewPager2
 import com.bahaso.bahaso.BaseFragment
@@ -14,6 +15,8 @@ import com.bahaso.bahaso.R
 import com.bahaso.bahaso.core.ViewModelFactory
 import com.bahaso.bahaso.core.data.LoadResult
 import com.bahaso.bahaso.databinding.FragmentQuizBinding
+import com.bahaso.bahaso.login.LoginFragmentDirections
+import com.bahaso.bahaso.login.LoginFragmentDirections.actionLoginFragmentToSignUpFragment
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -88,7 +91,12 @@ class QuizFragment : BaseFragment() {
                 arguments.topic?.id?.let { viewModel.saveUserScore(it) }
                 // erase code below and change to show score
                 // to get the final score, you can get it from "viewModel.userScore" variable
-                activity?.onBackPressed()
+                with (binding) {
+                    val action = QuizFragmentDirections.actionQuizFragmentToScoreFragment()
+                    action.scoreArg = viewModel.userScore.toInt()
+                    action.topic = arguments.topic
+                    findNavController().navigate(action)
+                }
             }
         }
     }

@@ -51,7 +51,7 @@ class ProfileFragment : BaseFragment() {
         binding?.btnLogout?.setOnClickListener {
             pref.logout()
             Firebase.auth.signOut()
-            findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToLoginFragment())
+
         }
     }
 

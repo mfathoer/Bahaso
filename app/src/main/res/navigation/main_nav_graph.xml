@@ -13,15 +13,15 @@
         <action
             android:id="@+id/action_homeFragment_to_quizFragment"
             app:destination="@id/quizFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.bahaso.bahaso.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
-        <action
-            android:id="@+id/action_profileFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/tempFragment"
@@ -62,5 +62,30 @@
             app:argType="com.bahaso.bahaso.core.domain.Topic"
             app:nullable="true"
             android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_quizFragment_to_scoreFragment"
+            app:destination="@id/scoreFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/scoreFragment"
+        android:name="com.bahaso.bahaso.score.ScoreFragment"
+        android:label="fragment_score"
+        tools:layout="@layout/fragment_score" >
+        <action
+            android:id="@+id/action_scoreFragment_to_quizFragment"
+            app:destination="@id/quizFragment" />
+        <action
+            android:id="@+id/action_scoreFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <argument
+            android:name="scoreArg"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="topic"
+            app:argType="com.bahaso.bahaso.core.domain.Topic"
+            app:nullable="true"
+            android:defaultValue="@null"/>
     </fragment>
 </navigation>

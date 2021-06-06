@@ -29,6 +29,7 @@ abstract class ViewModelModule {
     @ViewModelKey(SignUpViewModel::class)
     abstract fun bindSignUpViewModel(viewModel: SignUpViewModel): ViewModel
 
+
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
 

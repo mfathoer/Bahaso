@@ -42,7 +42,6 @@ class LoginFragment : BaseFragment() {
 
             btnLogin.setOnClickListener {
                 attemptlogin()
-
             }
             btnToSignUp.setOnClickListener {
                 val action = LoginFragmentDirections.actionLoginFragmentToSignUpFragment()

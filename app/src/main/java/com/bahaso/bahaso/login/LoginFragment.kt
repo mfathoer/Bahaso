@@ -96,7 +96,7 @@ class LoginFragment : BaseFragment() {
                 }
 
             }
-    }
+    }}
 
     override fun onDestroyView() {
         super.onDestroyView()

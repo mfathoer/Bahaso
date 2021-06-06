@@ -4,106 +4,119 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".login.LoginFragment">
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edit_email"
         style="@style/Widget.AppCompat.EditText"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
+        android:layout_marginStart="52dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/Email"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/btn_login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.500"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.500" />
+        app:layout_constraintTop_toBottomOf="@id/Text_email" />
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edit_password"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
         android:ems="10"
         android:hint="@string/password"
         android:importantForAutofill="no"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/btn_login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.500"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_email"
-        app:layout_constraintVertical_bias="0.323" />
+        app:layout_constraintTop_toBottomOf="@+id/Text_password" />
 
     <Button
         android:id="@+id/btn_login"
         android:layout_width="200dp"
         android:layout_height="53dp"
+        android:layout_marginTop="32dp"
         android:backgroundTint="@color/mainYellow"
         android:text="@string/login"
         android:textSize="16sp"
         app:cornerRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.628" />
+        app:layout_constraintTop_toBottomOf="@id/lupa_password" />
 
     <Button
         android:id="@+id/btn_to_sign_up"
-        android:backgroundTint="@color/mainYellow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/mainYellow"
         android:text="@string/signup"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_password"
-        app:layout_constraintVertical_bias="0.769" />
+        app:layout_constraintTop_toBottomOf="@+id/sudah_punya_akun"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/sudah_punya_akun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
         android:text="@string/Tidak_punya_akun"
-        app:layout_constraintBottom_toTopOf="@+id/btn_to_sign_up"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/lupa_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="12dp"
         android:background="@color/white"
         android:clickable="true"
         android:focusable="true"
         android:text="@string/lupa_password"
-        app:layout_constraintBottom_toTopOf="@+id/btn_login"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.812"
+        app:layout_constraintHorizontal_bias="0.822"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_password"
-        app:layout_constraintVertical_bias="0.12" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_password" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="183dp"
         android:layout_height="130dp"
+        android:layout_marginTop="56dp"
         android:contentDescription="@string/logo"
         android:src="@drawable/ic_profile_blue"
-        app:layout_constraintBottom_toTopOf="@+id/edit_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.500" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/Text_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="44dp"
+        android:text="@string/Email"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/Text_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/password"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_email" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

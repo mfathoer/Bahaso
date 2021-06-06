@@ -5,6 +5,7 @@
     <string name="login">Masuk</string>
     <string name="Email">Email</string>
     <string name="password">Password</string>
+    <string name="reset_password">Lupa password ? Tenang... Masukkan email akun kalian agar kami dapat mengirim link untuk mengganti password</string>
     <string name="signup">Daftar</string>
     <string name="logo">Logo</string>
     <string name="Tidak_punya_akun">Tidak punya akun?</string>
@@ -30,4 +31,19 @@
     <string name="count_question">"%d / %d "</string>
     <string name="done">Selesai</string>
     <string name="translation">Terjemahan</string>
+    <string name="take_exam">Ambil Ujian</string>
+    <string name="start">Mulai</string>
+    <string name="cancel">Batal</string>
+    <string name="are_you_sure">Apa anda yakin?</string>
+    <string name="take_exam_alert_dialog_message">Ujian akan dimulai setelah Anda klik \"Mulai ujian\"</string>
+    <string name="alert__message_cancel_quiz">Jawaban quiz Anda akan terhapus</string>
+    <string name="continue_quiz">Lanjut</string>
+    <string name="alert_title_cancel_quiz">Batalkan quiz?</string>
+    <string name="yes">ya</string>
+    <string name="no">tidak</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="leader_board">Leaderboard</string>
+    <string name="back_to_prev_screen">kembali ke halaman sebelumnya</string>
+    <string name="back">Kembali</string>
 </resources>

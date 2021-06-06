@@ -2,10 +2,10 @@ package com.bahaso.bahaso.di
 
 import com.bahaso.bahaso.core.di.CoreComponent
 import com.bahaso.bahaso.home.HomeFragment
+import com.bahaso.bahaso.profile.ProfileFragment
 import com.bahaso.bahaso.quiz.QuizFragment
 import com.bahaso.bahaso.signup.SignUpFragment
-import com.bahaso.bahaso.profile.ProfileFragment
-import com.bahaso.bahaso.score.ScoreFragment
+import com.bahaso.bahaso.theory.TheoryFragment
 import dagger.Component
 
 @AppScope
@@ -22,7 +22,7 @@ interface AppComponent {
 
     fun inject(fragment: HomeFragment)
     fun inject(fragment: QuizFragment)
-    fun inject (fragment: SignUpFragment)
-    fun inject (fragment: ProfileFragment)
-    fun inject (fragment: ScoreFragment)
+    fun inject(fragment: SignUpFragment)
+    fun inject(fragment: TheoryFragment)
+    fun inject(fragment: ProfileFragment)
 }

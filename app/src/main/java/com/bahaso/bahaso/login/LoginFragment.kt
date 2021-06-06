@@ -47,13 +47,17 @@ class LoginFragment : BaseFragment() {
                 val action = LoginFragmentDirections.actionLoginFragmentToSignUpFragment()
                 findNavController().navigate(action)
             }
+            lupaPassword.setOnClickListener{
+                val action = LoginFragmentDirections.actionLoginFragmentToLupaPasswordFragment()
+                findNavController().navigate(action)
+            }
+
         }
         auth = Firebase.auth
     }
 
     public override fun onStart() {
         super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         if (currentUser != null) {
             val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
@@ -62,27 +66,38 @@ class LoginFragment : BaseFragment() {
     }
 
     private fun attemptlogin() {
-        var email = binding.editEmail.text.toString()
-        var password = binding.editPassword.text.toString()
-        if (email.equals("") || password.equals("")) {
-            return
+        val email = binding.editEmail.text.toString()
+        val password = binding.editPassword.text.toString()
+        if(email.equals("") || password.equals("")) {
+            Toast.makeText(context, "Email dan Password tidak boleh kosong", Toast.LENGTH_SHORT)
+                .show()
         }
+
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(Activity()) { task ->
                 if (task.isSuccessful) {
+
+                    Toast.makeText(context, "Login berhasil", Toast.LENGTH_SHORT).show()
+                    val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
+                    findNavController().navigate(action)
+
                     Log.d(TAG, "signInWithEmail:success")
 //                    Toast.makeText(context, "${auth.uid}", Toast.LENGTH_SHORT).show()
 
                     // Take userdata and navigate to home
                     getUserData(email)
 
+
                 } else {
-                    Log.w(TAG, "signInWithEmail:failure", task.exception)
-                    Toast.makeText(context, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Login gagal", Toast.LENGTH_SHORT).show()
                 }
 
             }
+    }}
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private var viewModelJob = Job()
@@ -119,6 +134,5 @@ class LoginFragment : BaseFragment() {
             }
         }
     }
-
 
 }

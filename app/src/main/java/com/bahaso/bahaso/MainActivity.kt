@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             alertDialog.setTitle(getString(R.string.alert_title_cancel_quiz))
             alertDialog.setMessage(getString(R.string.alert__message_cancel_quiz))
             alertDialog.setPositiveButton(getString(R.string.yes)) { _, _ ->
-                val action = QuizFragmentDirections.actionQuizFragmentToHomeFragment()
+                val action = QuizFragmentDirections.actionQuizFragmentToHomeFragment2()
                 navControllerCompat.navigate(action)
             }
             alertDialog.setNegativeButton(getString(R.string.no)) { _, _ -> }

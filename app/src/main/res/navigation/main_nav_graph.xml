@@ -60,7 +60,18 @@
         android:name="com.bahaso.bahaso.quiz.QuizFragment"
         android:label="fragment_quiz"
 
-        tools:layout="@layout/fragment_quiz" />
+        tools:layout="@layout/fragment_quiz" >
+        <action
+            android:id="@+id/action_quizFragment_to_homeFragment2"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="topic"
+            app:argType="com.bahaso.bahaso.core.domain.Topic"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
     <fragment
         android:id="@+id/lupaPasswordFragment"
         android:name="com.bahaso.bahaso.login.LupaPasswordFragment"

@@ -1,15 +1,18 @@
 package com.bahaso.bahaso.signup
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.bahaso.bahaso.core.data.QuizRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.*
 import timber.log.Timber
 import javax.inject.Inject
 
-class SignUpViewModel : ViewModel() {
+class SignUpViewModel @Inject constructor(private val quizRepository: QuizRepository) : ViewModel() {
 
     private val auth : FirebaseAuth = FirebaseAuth.getInstance()
     private lateinit var user : FirebaseUser
@@ -60,6 +63,9 @@ class SignUpViewModel : ViewModel() {
                             Timber.d("User berhasil daftar")
                             user = auth.currentUser!!
 
+                            // Menyimpan data ke RealTimedatabase
+                            addDataToFirestore(user.uid)
+
                             _isLoading.postValue(false)
                             _navigateToHome.value = true
 
@@ -71,6 +77,22 @@ class SignUpViewModel : ViewModel() {
 
         }
 
+    }
+
+    private fun addDataToFirestore(userId: String) {
+        val data = hashMapOf(
+            "name" to name,
+            "birth_date" to birth,
+            "gender" to gender
+        )
+
+        val db = FirebaseFirestore.getInstance()
+        db.collection("users")
+            .document(userId)
+            .set(data)
+            .addOnSuccessListener {
+                Timber.d("Data berhasil disimpan di firestore")
+            }
     }
 
     override fun onCleared() {

@@ -23,6 +23,12 @@ abstract class ViewModelModule {
     @ViewModelKey(QuizViewModel::class)
     abstract fun bindQuizViewModel(viewModel: QuizViewModel): ViewModel
 
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SignUpViewModel::class)
+    abstract fun bindSignUpViewModel(viewModel: SignUpViewModel): ViewModel
+
     @Binds
     @IntoMap
     @ViewModelKey(TheoryViewModel::class)

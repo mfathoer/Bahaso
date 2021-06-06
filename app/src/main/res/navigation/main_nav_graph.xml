@@ -18,7 +18,11 @@
         android:id="@+id/profileFragment"
         android:name="com.bahaso.bahaso.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/tempFragment"
         android:name="com.bahaso.bahaso.TempFragment"
@@ -35,6 +39,9 @@
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_lupaPasswordFragment"
+            app:destination="@id/lupaPasswordFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -52,6 +59,16 @@
         android:id="@+id/quizFragment"
         android:name="com.bahaso.bahaso.quiz.QuizFragment"
         android:label="fragment_quiz"
+
+        tools:layout="@layout/fragment_quiz" />
+    <fragment
+        android:id="@+id/lupaPasswordFragment"
+        android:name="com.bahaso.bahaso.login.LupaPasswordFragment"
+        android:label="LupaPasswordFragment">
+        <action
+            android:id="@+id/action_lupaPasswordFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+
         tools:layout="@layout/fragment_quiz" >
         <argument
             android:name="topic"

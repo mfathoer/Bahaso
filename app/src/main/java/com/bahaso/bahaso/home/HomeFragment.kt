@@ -12,6 +12,7 @@ import com.bahaso.bahaso.BaseFragment
 import com.bahaso.bahaso.MyApplication
 import com.bahaso.bahaso.core.ViewModelFactory
 import com.bahaso.bahaso.core.data.LoadResult
+import com.bahaso.bahaso.core.session.Preferences
 import com.bahaso.bahaso.databinding.FragmentHomeBinding
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -55,6 +56,10 @@ class HomeFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         adapter = LearningTopicListAdapter()
         observeQuizTopic()
+
+        // Menampilkan nama user
+        val pref = Preferences(requireContext())
+        binding?.username?.text = "Halo, ${pref.name}"
 
         binding?.rvLearningTopic?.let {
             it.adapter = adapter

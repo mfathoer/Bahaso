@@ -42,4 +42,9 @@
     <string name="alert_title_cancel_quiz">Batalkan quiz?</string>
     <string name="yes">ya</string>
     <string name="no">tidak</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="leader_board">Leaderboard</string>
+    <string name="back_to_prev_screen">kembali ke halaman sebelumnya</string>
+    <string name="back">Kembali</string>
 </resources>

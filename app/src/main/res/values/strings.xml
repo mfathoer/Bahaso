@@ -5,6 +5,7 @@
     <string name="login">Masuk</string>
     <string name="Email">Email</string>
     <string name="password">Password</string>
+    <string name="reset_password">Lupa password ? Tenang... Masukkan email akun kalian agar kami dapat mengirim link untuk mengganti password</string>
     <string name="signup">Daftar</string>
     <string name="logo">Logo</string>
     <string name="Tidak_punya_akun">Tidak punya akun?</string>

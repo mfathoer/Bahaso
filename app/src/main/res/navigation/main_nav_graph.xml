@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_lupaPasswordFragment"
+            app:destination="@id/lupaPasswordFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -56,6 +59,16 @@
         android:id="@+id/quizFragment"
         android:name="com.bahaso.bahaso.quiz.QuizFragment"
         android:label="fragment_quiz"
+
+        tools:layout="@layout/fragment_quiz" />
+    <fragment
+        android:id="@+id/lupaPasswordFragment"
+        android:name="com.bahaso.bahaso.login.LupaPasswordFragment"
+        android:label="LupaPasswordFragment">
+        <action
+            android:id="@+id/action_lupaPasswordFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+
         tools:layout="@layout/fragment_quiz" >
         <argument
             android:name="topic"

@@ -5,17 +5,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
+import android.widget.ImageView
 import androidx.navigation.fragment.findNavController
 import com.bahaso.bahaso.BaseFragment
 import com.bahaso.bahaso.MyApplication
 import com.bahaso.bahaso.R
-import com.bahaso.bahaso.core.session.Preferences
 import com.bahaso.bahaso.core.ViewModelFactory
+import com.bahaso.bahaso.core.session.Preferences
 import com.bahaso.bahaso.databinding.FragmentProfileBinding
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import javax.inject.Inject
+
 
 class ProfileFragment : BaseFragment() {
     private var _binding: FragmentProfileBinding? = null
@@ -52,6 +53,13 @@ class ProfileFragment : BaseFragment() {
             pref.logout()
             Firebase.auth.signOut()
 
+            val action = ProfileFragmentDirections.actionProfileFragmentToLoginFragment()
+            findNavController().navigate(action)
+        }
+
+        binding?.btnEditBiodata?.setOnClickListener {
+            val action = ProfileFragmentDirections.actionProfileFragmentToEditBiodataFragment()
+            findNavController().navigate(action)
         }
     }
 

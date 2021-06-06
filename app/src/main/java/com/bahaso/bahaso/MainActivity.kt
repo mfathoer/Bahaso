@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.quizFragment -> navView.visibility = View.GONE
                 R.id.scoreFragment -> navView.visibility = View.GONE
                 R.id.theoryFragment -> navView.visibility = View.GONE
+                R.id.editBiodataFragment -> navView.visibility = View.GONE
             }
         }
     }

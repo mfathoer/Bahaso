@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_profileFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_editBiodataFragment"
+            app:destination="@id/editBiodataFragment" />
     </fragment>
     <fragment
         android:id="@+id/leaderBoardFragment"
@@ -129,5 +132,14 @@
             app:argType="com.bahaso.bahaso.core.domain.Topic"
             app:nullable="true"
             android:defaultValue="@null"/>
+    </fragment>
+    <fragment
+        android:id="@+id/editBiodataFragment"
+        android:name="com.bahaso.bahaso.profile.EditBiodataFragment"
+        android:label="EditBiodataFragment"
+        tools:layout="@layout/fragment_edit_biodata" >
+        <action
+            android:id="@+id/action_editBiodataFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
 </navigation>

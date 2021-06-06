@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.bahaso.bahaso.core.ViewModelFactory
 import com.bahaso.bahaso.home.HomeViewModel
+import com.bahaso.bahaso.profile.ProfileViewModel
 import com.bahaso.bahaso.quiz.QuizViewModel
 import com.bahaso.bahaso.signup.SignUpViewModel
 import com.bahaso.bahaso.theory.TheoryViewModel
@@ -34,6 +35,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(TheoryViewModel::class)
     abstract fun bindTheoryViewModel(viewModel: TheoryViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ProfileViewModel::class)
+    abstract fun bindProfileViewModel(viewModel: ProfileViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory

@@ -24,8 +24,8 @@
     <string name="name_profile">Nama Orang</string>
     <string name="email_profile">emailemail@gmail.com</string>
     <string name="tanggal_profile">12 Januari 2001</string>
-    <string name="change_name">Ubah Nama</string>
-    <string name="change_password">Ubah Kata Sandi</string>
+    <string name="change_name">Edit Biodata</string>
+    <string name="change_password">Ubah Password</string>
     <string name="exit">Keluar</string>
     <string name="desc_img_profile">User Profile</string>
     <string name="count_question">"%d / %d "</string>

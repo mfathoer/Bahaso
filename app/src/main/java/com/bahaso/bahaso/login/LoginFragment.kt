@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.constraintlayout.motion.utils.Oscillator.TAG
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.bahaso.bahaso.BaseFragment
 import com.bahaso.bahaso.core.session.Preferences
@@ -16,8 +17,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.*
-
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.callbackFlow
 
 class LoginFragment : BaseFragment() {
     private lateinit var auth: FirebaseAuth
@@ -41,13 +43,13 @@ class LoginFragment : BaseFragment() {
         with(binding) {
 
             btnLogin.setOnClickListener {
-                attemptlogin()
+                attemptLogin()
             }
             btnToSignUp.setOnClickListener {
                 val action = LoginFragmentDirections.actionLoginFragmentToSignUpFragment()
                 findNavController().navigate(action)
             }
-            lupaPassword.setOnClickListener{
+            lupaPassword.setOnClickListener {
                 val action = LoginFragmentDirections.actionLoginFragmentToLupaPasswordFragment()
                 findNavController().navigate(action)
             }
@@ -56,7 +58,7 @@ class LoginFragment : BaseFragment() {
         auth = Firebase.auth
     }
 
-    public override fun onStart() {
+    override fun onStart() {
         super.onStart()
         val currentUser = auth.currentUser
         if (currentUser != null) {
@@ -65,10 +67,10 @@ class LoginFragment : BaseFragment() {
         }
     }
 
-    private fun attemptlogin() {
+    private fun attemptLogin() {
         val email = binding.editEmail.text.toString()
         val password = binding.editPassword.text.toString()
-        if(email.equals("") || password.equals("")) {
+        if (email.equals("") || password.equals("")) {
             Toast.makeText(context, "Email dan Password tidak boleh kosong", Toast.LENGTH_SHORT)
                 .show()
         }
@@ -81,10 +83,7 @@ class LoginFragment : BaseFragment() {
 //                    Toast.makeText(context, "${auth.uid}", Toast.LENGTH_SHORT).show()
 
                     // Take userdata and navigate to home
-                    getUserData(email)
-                    Toast.makeText(context, "Login berhasil", Toast.LENGTH_SHORT).show()
-                    val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
-                    findNavController().navigate(action)
+                    saveUserDataToPreference(email)
 
                 } else {
                     Toast.makeText(context, "Login gagal", Toast.LENGTH_SHORT).show()
@@ -98,27 +97,31 @@ class LoginFragment : BaseFragment() {
         _binding = null
     }
 
-    private fun getUserData(userEmail : String) {
+    private fun saveUserDataToPreference(userEmail: String)  {
         val db = FirebaseFirestore.getInstance()
-        db.collection("users")
+        val userDbRef = db.collection("users")
             .document(auth.currentUser!!.uid)
-            .get()
-            .addOnSuccessListener { data ->
 
-        var name = data.getString("name") ?: ""
-        val birth = data.getString("birth_date") ?: ""
-        val gender = data.getString("gender") ?: ""
+        userDbRef.get().addOnSuccessListener { data ->
 
-        val pref = Preferences(requireContext())
+            val name = data.getString("name") ?: ""
+            val birth = data.getString("birth_date") ?: ""
+            val gender = data.getString("gender") ?: ""
 
-        pref.setName(name)
-        pref.setBirth(birth)
-        pref.setGender(gender)
-        pref.setEmail(userEmail)
+            val pref = Preferences(requireContext())
 
-    }.addOnFailureListener {
-        Toast.makeText(context, "Gagal mengambil data dari firebase", Toast.LENGTH_LONG).show()
-    }
+            pref.setName(name)
+            pref.setBirth(birth)
+            pref.setGender(gender)
+            pref.setEmail(userEmail)
 
+            Toast.makeText(context, "Login berhasil", Toast.LENGTH_SHORT).show()
+            val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
+            findNavController().navigate(action)
+
+        }.addOnFailureListener {
+            Toast.makeText(context, "Gagal mengambil data dari firebase", Toast.LENGTH_LONG)
+                .show()
+        }
     }
 }

@@ -49,6 +49,7 @@
         android:layout_height="48dp"
         android:layout_marginEnd="16dp"
         android:elevation="5dp"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="@id/bg_username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/bg_username"

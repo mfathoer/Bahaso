@@ -1,6 +1,7 @@
 package com.bahaso.bahaso.home
 
 import android.content.Context
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,8 @@ import com.bahaso.bahaso.core.session.Preferences
 import com.bahaso.bahaso.databinding.FragmentHomeBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -68,7 +71,8 @@ class HomeFragment : BaseFragment() {
             .error(R.drawable.ic_user_profile_image)
 
         binding?.imgAvatar?.let {
-            Glide.with(this).setDefaultRequestOptions(requestOptions).load("").into(it)
+            Glide.with(this).setDefaultRequestOptions(requestOptions)
+                .load(getURLProfile(Firebase.auth.currentUser!!.uid)).into(it)
         }
 
         binding?.rvLearningTopic?.let {
@@ -108,6 +112,14 @@ class HomeFragment : BaseFragment() {
         } else {
             binding?.progressBar?.visibility = View.GONE
         }
+    }
+
+    private fun getURLProfile(userId: String): String {
+        val builder: Uri.Builder = Uri.Builder()
+        builder.scheme("https")
+            .authority("robohash.org")
+            .appendPath("$userId.png")
+        return builder.build().toString()
     }
 
 }

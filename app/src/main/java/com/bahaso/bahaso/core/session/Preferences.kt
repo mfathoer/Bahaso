@@ -31,19 +31,19 @@ class Preferences(context: Context) {
     }
 
     fun setName(name: String) {
-        editor.putString(KEY_NAME, name).commit()
+        editor.putString(KEY_NAME, name).apply()
     }
 
     fun setEmail(email: String) {
-        editor.putString(KEY_EMAIL, email).commit()
+        editor.putString(KEY_EMAIL, email).apply()
     }
 
     fun setGender(gender: String) {
-        editor.putString(KEY_GENDER, gender).commit()
+        editor.putString(KEY_GENDER, gender).apply()
     }
 
     fun setBirth(birth: String) {
-        editor.putString(KEY_BIRTH, birth).commit()
+        editor.putString(KEY_BIRTH, birth).apply()
     }
 
     fun incrementReminderId() {

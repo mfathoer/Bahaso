@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.bahaso.bahaso.databinding.FragmentLoginBinding
 import com.bahaso.bahaso.databinding.FragmentLupaPasswordBinding
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class LupaPasswordFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
@@ -26,6 +26,7 @@ class LupaPasswordFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        auth = Firebase.auth
         with (binding){
             btnKirim.setOnClickListener {
                reset_password()

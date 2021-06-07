@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_profileFragment_to_editBiodataFragment"
             app:destination="@id/editBiodataFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_editPasswordFragment"
+            app:destination="@id/editPasswordFragment" />
     </fragment>
     <fragment
         android:id="@+id/leaderBoardFragment"
@@ -140,6 +143,15 @@
         tools:layout="@layout/fragment_edit_biodata" >
         <action
             android:id="@+id/action_editBiodataFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editPasswordFragment"
+        android:name="com.bahaso.bahaso.profile.EditPasswordFragment"
+        android:label="EditPasswordFragment" >
+        tools:layout="@layout/fragment_edit_password" >
+        <action
+            android:id="@+id/action_editPasswordFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
 </navigation>

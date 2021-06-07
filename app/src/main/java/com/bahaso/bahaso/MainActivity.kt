@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.scoreFragment -> navView.visibility = View.GONE
                 R.id.theoryFragment -> navView.visibility = View.GONE
                 R.id.editBiodataFragment -> navView.visibility = View.GONE
+                R.id.editPasswordFragment -> navView.visibility = View.GONE
             }
         }
     }

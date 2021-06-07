@@ -71,7 +71,7 @@
             android:gravity="start"
             android:textAllCaps="false"
             style="?android:attr/borderlessButtonStyle"
-            android:text="@string/change_name" />
+            android:text="Edit Biodata" />
 
         <Button
             android:id="@+id/btn_edit_password"
@@ -81,7 +81,7 @@
             android:gravity="start"
             android:textAllCaps="false"
             style="?android:attr/borderlessButtonStyle"
-            android:text="@string/change_password" />
+            android:text="Edit Password" />
 
         <Button
             android:id="@+id/btn_logout"

@@ -61,6 +61,11 @@ class ProfileFragment : BaseFragment() {
             val action = ProfileFragmentDirections.actionProfileFragmentToEditBiodataFragment()
             findNavController().navigate(action)
         }
+
+        binding?.btnEditPassword?.setOnClickListener {
+            val action = ProfileFragmentDirections.actionProfileFragmentToEditPasswordFragment()
+            findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {

@@ -77,16 +77,14 @@ class LoginFragment : BaseFragment() {
             .addOnCompleteListener(Activity()) { task ->
                 if (task.isSuccessful) {
 
-                    Toast.makeText(context, "Login berhasil", Toast.LENGTH_SHORT).show()
-                    val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
-                    findNavController().navigate(action)
-
                     Log.d(TAG, "signInWithEmail:success")
 //                    Toast.makeText(context, "${auth.uid}", Toast.LENGTH_SHORT).show()
 
                     // Take userdata and navigate to home
                     getUserData(email)
-
+                    Toast.makeText(context, "Login berhasil", Toast.LENGTH_SHORT).show()
+                    val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
+                    findNavController().navigate(action)
 
                 } else {
                     Toast.makeText(context, "Login gagal", Toast.LENGTH_SHORT).show()
@@ -100,38 +98,27 @@ class LoginFragment : BaseFragment() {
         _binding = null
     }
 
-    private var viewModelJob = Job()
-    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
-
     private fun getUserData(userEmail : String) {
-        uiScope.launch {
-            withContext(Dispatchers.IO) {
-                val db = FirebaseFirestore.getInstance()
-                db.collection("users")
-                    .document(auth.currentUser!!.uid)
-                    .get()
-                    .addOnSuccessListener { data ->
+        val db = FirebaseFirestore.getInstance()
+        db.collection("users")
+            .document(auth.currentUser!!.uid)
+            .get()
+            .addOnSuccessListener { data ->
 
+        var name = data.getString("name") ?: ""
+        val birth = data.getString("birth_date") ?: ""
+        val gender = data.getString("gender") ?: ""
 
-                        var name = data.getString("name") ?: ""
-                        val birth = data.getString("birth_date") ?: ""
-                        val gender = data.getString("gender") ?: ""
+        val pref = Preferences(requireContext())
 
-                        val pref = Preferences(requireContext())
+        pref.setName(name)
+        pref.setBirth(birth)
+        pref.setGender(gender)
+        pref.setEmail(userEmail)
 
-                        pref.setName(name)
-                        pref.setBirth(birth)
-                        pref.setGender(gender)
-                        pref.setEmail(userEmail)
+    }.addOnFailureListener {
+        Toast.makeText(context, "Gagal mengambil data dari firebase", Toast.LENGTH_LONG).show()
+    }
 
-
-                        val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
-                        findNavController().navigate(action)
-
-                    }.addOnFailureListener {
-                        Toast.makeText(context, "Gagal mengambil data dari firebase", Toast.LENGTH_LONG).show()
-                    }
-            }
-        }
     }
 }

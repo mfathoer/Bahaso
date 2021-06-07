@@ -73,6 +73,11 @@ class ProfileFragment : BaseFragment() {
             val action = ProfileFragmentDirections.actionProfileFragmentToEditPasswordFragment()
             findNavController().navigate(action)
         }
+
+        binding?.btnEditEmail?.setOnClickListener{
+            val action = ProfileFragmentDirections.actionProfileFragmentToEditEmailFragment()
+            findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {

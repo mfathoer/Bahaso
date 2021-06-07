@@ -21,13 +21,18 @@
         tools:layout="@layout/fragment_profile" >
         <action
             android:id="@+id/action_profileFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_profileFragment_to_editBiodataFragment"
             app:destination="@id/editBiodataFragment" />
         <action
             android:id="@+id/action_profileFragment_to_editPasswordFragment"
             app:destination="@id/editPasswordFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_editEmailFragment"
+            app:destination="@id/editEmailFragment" />
     </fragment>
     <fragment
         android:id="@+id/leaderBoardFragment"
@@ -152,6 +157,15 @@
         tools:layout="@layout/fragment_edit_password" >
         <action
             android:id="@+id/action_editPasswordFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editEmailFragment"
+        android:name="com.bahaso.bahaso.profile.EditEmailFragment"
+        android:label="fragment_edit_email"
+        tools:layout="@layout/fragment_edit_email" >
+        <action
+            android:id="@+id/action_editEmailFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
 </navigation>

@@ -83,7 +83,16 @@
             android:textAllCaps="false"
             style="?android:attr/borderlessButtonStyle"
             android:text="Edit Biodata" />
-        
+
+        <Button
+            android:id="@+id/btn_edit_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:gravity="start"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"
+            android:text="Edit Email" />
         <Button
             android:id="@+id/btn_edit_password"
             android:layout_width="match_parent"

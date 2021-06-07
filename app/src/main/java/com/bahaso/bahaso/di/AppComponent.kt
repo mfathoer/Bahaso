@@ -4,6 +4,7 @@ import com.bahaso.bahaso.core.di.CoreComponent
 import com.bahaso.bahaso.home.HomeFragment
 import com.bahaso.bahaso.profile.ProfileFragment
 import com.bahaso.bahaso.profile.EditBiodataFragment
+import com.bahaso.bahaso.profile.EditEmailFragment
 import com.bahaso.bahaso.profile.EditPasswordFragment
 import com.bahaso.bahaso.quiz.QuizFragment
 import com.bahaso.bahaso.signup.SignUpFragment
@@ -29,4 +30,5 @@ interface AppComponent {
     fun inject (fragment: ProfileFragment)
     fun inject (fragment: EditBiodataFragment)
     fun inject (fragment: EditPasswordFragment)
+    fun inject (fragment: EditEmailFragment)
 }

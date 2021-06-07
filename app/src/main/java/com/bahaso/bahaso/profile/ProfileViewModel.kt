@@ -54,4 +54,27 @@ class ProfileViewModel @Inject constructor(private val quizRepository: QuizRepos
             }
         awaitClose{user}
     }
+
+    fun changeEmail(oldEmail: String, newEmail: String, password: String)  = callbackFlow<LoadResult<Boolean>> {
+        val user = Firebase.auth.currentUser
+        val credential = EmailAuthProvider
+            .getCredential(oldEmail, password)
+
+        user!!.reauthenticate(credential)
+            .addOnCompleteListener{auth ->
+                if(auth.isSuccessful){
+                    user!!.updateEmail(newEmail)
+                        .addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
+                                Timber.d("Edit Password Berhasil")
+                                offer(LoadResult.Success(true))
+                            }
+                        }
+                }
+            }
+            .addOnFailureListener{
+                offer(LoadResult.Error("Password anda salah"))
+            }
+        awaitClose{user}
+    }
 }

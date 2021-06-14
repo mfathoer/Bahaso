@@ -43,7 +43,7 @@
         android:id="@+id/scoreword"
         android:layout_width="248dp"
         android:layout_height="60dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:text="@string/score"
         android:textSize="36sp"
@@ -54,23 +54,27 @@
 
     <ImageView
         android:id="@+id/imageView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="167dp"
+        android:layout_height="148dp"
         android:layout_marginTop="56dp"
+        android:foregroundGravity="center"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ContentDescription"
-        app:srcCompat="@drawable/rectangle_19" />
+        app:srcCompat="@drawable/backgroundscore"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/scoreImageProfile"
-        android:layout_width="185dp"
-        android:layout_height="134dp"
-        android:layout_marginTop="0dp"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:foregroundGravity="center"
         app:layout_constraintEnd_toEndOf="@+id/imageView12"
+        app:layout_constraintHorizontal_bias="0.26"
         app:layout_constraintStart_toStartOf="@+id/imageView12"
         app:layout_constraintTop_toTopOf="@+id/imageView12"
+        android:layout_marginTop="15dp"
         app:srcCompat="@drawable/scorephoto"
         tools:ignore="ContentDescription" />
 
@@ -78,7 +82,7 @@
         android:id="@+id/scoreName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:text="@string/name_profile"
         android:textColor="@color/black"
